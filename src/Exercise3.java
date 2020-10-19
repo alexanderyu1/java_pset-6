@@ -14,20 +14,19 @@ public class Exercise3 {
 
         in.close();
 
-        String integerToString = Integer.toString(integer);
-        int integerStringLength = integerToString.length();
-
         int result = 0;
+        String integerString = String.valueOf(integer);
+        int integerLength = integerString.length();
 
-        for (int i = 0; i < integerStringLength; i++) {
-            String integerCharToString = String.valueOf(integerToString.charAt(i));
-            double doubleOfThisChar = (Integer.parseInt(integerCharToString) / 2);
+        for (int i = 0; i < integerLength; i++) {
+            String integerSection = integerString.substring(i, i + 1);
+            int integerSectionInteger = Integer.parseInt(integerSection);
 
-            if (((doubleOfThisChar) / 2) != (int)((doubleOfThisChar) / 2)) {
-                result = result + Integer.parseInt(integerCharToString);
+            if (integerSectionInteger % 2 != 0) {
+                result += integerSectionInteger;
             }
         }
 
-        System.out.print(result);
+        System.out.println("\n" + result + ".");
     }
 }
