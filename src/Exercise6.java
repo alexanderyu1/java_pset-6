@@ -8,31 +8,27 @@ public class Exercise6 {
         int integer = in.nextInt();
 
         while (integer < 1 || integer > 92) {
+
             System.out.print("Enter an integer: ");
             integer = in.nextInt();
+
         }
 
         in.close();
 
-        double fibonacci = 0;
-        double a = 0;
-        double b = 1;
+        int fibonacciA = 0;
+        int fibonacciB = 1;
+        int fibonacciC;
 
-        if (integer == 1) {
-            fibonacci  = 0;
-        }
-        else if (integer == 2) {
-            fibonacci  = 1;
-        }
-        else {
-            for (int i = 2; i < integer; i++) {
-                fibonacci  = a + b;
-                a = b;
-                b = fibonacci;
-            }
+
+        for (int i = 2; i <= integer; i++) {
+            fibonacciC = fibonacciA + fibonacciB;
+            fibonacciB = fibonacciA;
+            fibonacciA = fibonacciC;
         }
 
-        System.out.printf("\n" + "%,.0f", fibonacci);
-        System.out.println(".");
+        System.out.println("\n" + fibonacciA + ".");
     }
 }
+
+

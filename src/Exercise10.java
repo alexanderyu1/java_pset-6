@@ -10,11 +10,11 @@ public class Exercise10 {
         in.close();
 
         String number = Long.toString(creditCardNumber);
-        int length = number.length();
-        int temp1  = 0;
-        int temp2 = 0;
-        int sum;
 
+        int length = number.length();
+        int temporary1  = 0;
+        int temporary2 = 0;
+        int sum;
 
         for (int k = length-2; k >= 0; k -=2) {
             char value = number.charAt(k);
@@ -22,21 +22,21 @@ public class Exercise10 {
             if (intValue >= 10) {
                 int tens = intValue/10;
                 int ones = intValue % 10;
-                temp1 = temp1 + tens + ones;
+                temporary1 = temporary1 + tens + ones;
             }
             else {
-                temp1 = temp1 + intValue;
+                temporary1 = temporary1 + intValue;
             }
         }
 
         for (int m = length -1; m >= 0; m -=2) {
             char value = number.charAt(m);
             int intValue = Character.getNumericValue(value);
-            temp2 = temp2 + intValue;
+            temporary2 = temporary2 + intValue;
         }
 
+        sum = temporary1 + temporary2;
 
-        sum = temp1 + temp2;
         if (sum % 10 == 0) {
             if (((number.startsWith("34")) || (number.startsWith("37"))) && (length == 15)) {
                 System.out.println(" ");
@@ -55,8 +55,6 @@ public class Exercise10 {
                 System.out.println("Invalid.");
             }
         }
-
-
         else {
             System.out.println("Invalid.");
         }

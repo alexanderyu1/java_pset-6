@@ -4,41 +4,37 @@ public class Exercise9 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
-        int inputHeight = 0;
+        System.out.print("Height: ");
+        int height = in.nextInt();
 
-        while (inputHeight <= 0 || inputHeight > 24) {
+        while (height < 1 || height > 24) {
             System.out.print("Height: ");
-            inputHeight = in.nextInt();
+            height = in.nextInt();
         }
 
         in.close();
 
-        int size = inputHeight;
-        String[] pyramid = new String[size];
-        for (int i = 0; i < size; i++) {
-            pyramid[i] = "#";
+        String pyramidLevels = "";
+
+        for (int i = 0; i < height; i++) {
+            for (int k = height - i; k > 1; k--) {
+                pyramidLevels += " ";
+            }
+            for (int j = -1; j <= i; j++) {
+                pyramidLevels += "#";
+            }
+            for (int b = 0; b <1; b++) {
+                pyramidLevels += " ";
+            }
+            for (int j = -1; j <= i; j++) {
+                pyramidLevels += "#";
+            }
+            if (i < height - 1) {
+                pyramidLevels += "\n";
+            } else;
         }
-        System.out.println();
 
+        System.out.println("\n" + pyramidLevels);
 
-        int build = 2;
-        for (int i = 1; i < inputHeight; i++) {
-            int spaces = inputHeight - build;
-
-            for (int j = 0; j <= spaces; j++) {
-                System.out.print(" ");
-            }
-            for (int k = 0; k < build; k++) {
-                System.out.print(pyramid[k]);
-            }
-            System.out.print("  ");
-            for (int k = 0; k < build; k++) {
-                System.out.print(pyramid[k]);
-            }
-
-            build++;
-
-            System.out.println("");
-        }
     }
 }
